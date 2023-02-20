@@ -1,11 +1,18 @@
 # frozen_string_literal: true
 
-require_relative '../linked_list'
+require_relative '../lib/linked_list'
+require_relative '../lib/node'
+
 
 describe LinkedList do
   let(:linked_list) { LinkedList.new }
+  let(:node) { Node.new('some value') }
 
   describe '#append' do
+    it 'adds a node to the end of the list' do
+      linked_list.append('some value')
+      expect(linked_list.tail.value).to eq('some value')
+    end
   end
 
   describe '#prepend' do

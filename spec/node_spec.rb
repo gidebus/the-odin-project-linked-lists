@@ -16,5 +16,9 @@ describe Node do
     it 'returns another node' do
       expect(node.next_node).to eq(second_node)
     end
+
+    it 'returns nil when its the last node' do
+      expect(second_node.next_node).to eq(nil)
+    end
   end
 end

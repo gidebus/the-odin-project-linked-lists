@@ -71,6 +71,12 @@ describe LinkedList do
   end
 
   describe '#contains?' do
+    it 'returns true if any node in the linked list has the same value' do
+      linked_list.append('a node')
+      linked_list.append('another node')
+      expect(linked_list.contains?('another node')).to eq(true)
+      expect(linked_list.contains?('not a node')).to eq(false)
+    end
   end
 
   describe '#find' do

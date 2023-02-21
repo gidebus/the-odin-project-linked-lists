@@ -89,6 +89,14 @@ describe LinkedList do
   end
 
   describe '#to_s' do
+    before do
+      linked_list.append('a node')
+      linked_list.append('another node')
+    end
+
+    context 'prints all linked lists nodes' do
+      specify { expect{ linked_list.to_s }.to output("(a node) -> (another node) -> (nil) ").to_stdout }
+    end
   end
 
 end

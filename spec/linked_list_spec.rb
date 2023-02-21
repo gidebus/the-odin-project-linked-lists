@@ -17,17 +17,38 @@ describe LinkedList do
 
   describe '#prepend' do
     it 'adds a node to the beginning of the list' do
-      linked_list.prepend('first node')
+      linked_list.append('a node')
+      expect(linked_list.head.value).to eq('a node')
+      linked_list.prepend('another node')
+      expect(linked_list.head.value).to eq('another node')
     end
   end
 
   describe '#size' do
+    it 'returns the size of the list' do
+      linked_list.append('a node')
+      expect(linked_list.size).to eq(1)
+      linked_list.append('another node')
+      expect(linked_list.size).to eq(2)
+    end
   end
 
   describe '#head' do
+    it 'returns the first node on the linked list' do
+      linked_list.append('a node')
+      expect(linked_list.head.value).to eq('a node')
+      linked_list.prepend('another node')
+      expect(linked_list.head.value).to eq('another node')
+    end
   end
 
   describe '#tail' do
+    it 'returns the last node on the lined list' do
+      linked_list.append('a node')
+      expect(linked_list.tail.value).to eq('a node')
+      linked_list.append('another node')
+      expect(linked_list.tail.value).to eq('another node')
+    end
   end
 
   describe '#at' do

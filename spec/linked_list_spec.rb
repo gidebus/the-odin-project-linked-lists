@@ -6,7 +6,6 @@ require_relative '../lib/node'
 
 describe LinkedList do
   let(:linked_list) { LinkedList.new }
-  let(:node) { Node.new('first node') }
 
   describe '#append' do
     it 'adds a node to the end of the list' do
@@ -80,6 +79,13 @@ describe LinkedList do
   end
 
   describe '#find' do
+    it 'returns the index of the node containing the specified value' do
+      linked_list.append('a node')
+      linked_list.append('another node')
+      expect(linked_list.find('a node')).to eq(0)
+      expect(linked_list.find('another node')).to eq(1)
+      expect(linked_list.find('not a node')).to eq(nil)
+    end
   end
 
   describe '#to_s' do

@@ -2,8 +2,8 @@
 
 require_relative './node'
 
+# class representation of a linked list and its methods
 class LinkedList
-
   attr_accessor :head, :tail
 
   def initialize
@@ -14,7 +14,7 @@ class LinkedList
   def append(value)
     node = Node.new(value)
     @head = node if @head.nil?
-    @tail.next_node = node if !@tail.nil?
+    @tail.next_node = node unless @tail.nil?
     @tail = node
   end
 
@@ -39,7 +39,6 @@ class LinkedList
 
   def at(index)
     node = @head
-    index = index
     index.times do
       node = node.next_node
     end
@@ -48,6 +47,7 @@ class LinkedList
 
   def pop
     return @head = nil if size <= 1
+
     node = @head
     node = node.next_node until node.next_node == @tail
     popped = @tail
@@ -55,11 +55,12 @@ class LinkedList
     @tail = node
     popped
   end
-  
+
   def contains?(value)
     node = @head
     until node.nil?
       return true if node.value == value
+
       node = node.next_node
     end
     false
@@ -71,7 +72,8 @@ class LinkedList
 
     until node.nil?
       return index if node.value == value
-      node = node.next_node 
+
+      node = node.next_node
       index += 1
     end
     nil
@@ -85,5 +87,4 @@ class LinkedList
     end
     print '(nil) '
   end
-
 end

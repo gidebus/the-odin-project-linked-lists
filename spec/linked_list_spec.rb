@@ -3,7 +3,6 @@
 require_relative '../lib/linked_list'
 require_relative '../lib/node'
 
-
 describe LinkedList do
   let(:linked_list) { LinkedList.new }
 
@@ -95,8 +94,7 @@ describe LinkedList do
     end
 
     context 'prints all linked lists nodes' do
-      specify { expect{ linked_list.to_s }.to output("(a node) -> (another node) -> (nil) ").to_stdout }
+      specify { expect { linked_list.to_s }.to output('(a node) -> (another node) -> (nil) ').to_stdout }
     end
   end
-
 end

@@ -52,6 +52,12 @@ describe LinkedList do
   end
 
   describe '#at' do
+    it 'returns the value of the node located at the specified index' do
+      linked_list.append('a node')
+      linked_list.append('another node')
+      expect(linked_list.at(1).value).to eq('another node')
+      expect(linked_list.at(0).value).to eq('a node')
+    end
   end
 
   describe '#pop' do

@@ -39,11 +39,11 @@ class LinkedList
 
   def at(index)
     node = @head
-    index = index - 1
+    index = index
     index.times do
       node = node.next_node
     end
-    node.value
+    node
   end
 
   def pop

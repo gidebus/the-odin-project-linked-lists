@@ -38,9 +38,22 @@ class LinkedList
   end
 
   def at(index)
+    node = @head
+    index = index - 1
+    index.times do
+      node = node.next_node
+    end
+    node.value
   end
 
   def pop
+    return @head = nil if size <= 1
+    node = @head
+    node = node.next_node until node.next_node == @tail
+    popped = @tail
+    node.next_node = nil
+    @tail = node
+    popped
   end
   
   def contains?(value)

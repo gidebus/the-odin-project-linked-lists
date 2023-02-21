@@ -6,16 +6,19 @@ require_relative '../lib/node'
 
 describe LinkedList do
   let(:linked_list) { LinkedList.new }
-  let(:node) { Node.new('some value') }
+  let(:node) { Node.new('first node') }
 
   describe '#append' do
     it 'adds a node to the end of the list' do
-      linked_list.append('some value')
-      expect(linked_list.tail.value).to eq('some value')
+      linked_list.append('first node')
+      expect(linked_list.tail.value).to eq('first node')
     end
   end
 
   describe '#prepend' do
+    it 'adds a node to the beginning of the list' do
+      linked_list.prepend('first node')
+    end
   end
 
   describe '#size' do

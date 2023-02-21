@@ -61,6 +61,13 @@ describe LinkedList do
   end
 
   describe '#pop' do
+    it 'removes and returns the last element of the linked list' do
+      linked_list.append('a node')
+      linked_list.append('another node')
+      expect(linked_list.size).to eq(2)
+      expect(linked_list.pop.value).to eq('another node')
+      expect(linked_list.size).to eq(1)
+    end
   end
 
   describe '#contains?' do

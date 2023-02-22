@@ -87,4 +87,41 @@ class LinkedList
     end
     print '(nil) '
   end
+
+  def insert_at(value, index)
+
+    return nil if index > (size - 1) || index < 0
+    return prepend(value) if index == 0
+    
+    node = @head
+    inserted_node = Node.new(value)
+    i = 0
+
+    until node.nil?
+      if index == (i + 1)
+        inserted_node.next_node = node.next_node
+        node.next_node = inserted_node
+        return node
+      end
+
+      node = node.next_node
+      i += 1
+    end
+  end
+
+  # def delete_at(index)
+  # end
 end
+
+list = LinkedList.new
+list.append(1)
+list.append(2)
+list.append(3)
+# list.append(4)
+list.to_s
+puts ''
+list.insert_at('random', 2)
+list.to_s
+puts ''
+p list.tail.value
+p list.head.value

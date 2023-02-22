@@ -97,4 +97,16 @@ describe LinkedList do
       specify { expect { linked_list.to_s }.to output('(a node) -> (another node) -> (nil) ').to_stdout }
     end
   end
+
+  describe '#insert_at' do
+    it 'inserts a node at the specified index' do
+      linked_list.append('a node')
+      linked_list.append('another node')
+      expect(linked_list.size).to eq(2)
+
+      linked_list.insert_at('inserted node', 1)
+      expect(linked_list.size).to eq(3)
+      expect(linked_list.at(1).value).to eq('inserted node')
+    end
+  end
 end

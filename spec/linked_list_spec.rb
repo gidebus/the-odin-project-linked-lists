@@ -90,8 +90,6 @@ describe LinkedList do
     end
   end
 
-  # TODO: Add tests for ensuring that when adding front
-  # or back the node updates @tail and @head
   describe '#insert_at' do
     it 'inserts a node at the specified index' do
       expect(linked_list.size).to eq(2)
@@ -99,6 +97,18 @@ describe LinkedList do
       linked_list.insert_at('inserted node', 1)
       expect(linked_list.size).to eq(3)
       expect(linked_list.at(1).value).to eq('inserted node')
+    end
+
+    it 'sets the inserted node as head if index is equal to 0' do
+      expect(linked_list.head.value).to eq('a node')
+      linked_list.insert_at('first node', 0)
+      expect(linked_list.head.value).to eq('first node')
+    end
+
+    it 'does not overide the tail of the list if index is equal to the last element' do
+      expect(linked_list.tail.value).to eq('another node')
+      linked_list.insert_at('not new tail', 1)
+      expect(linked_list.tail.value).to eq('another node')
     end
   end
 
@@ -113,6 +123,19 @@ describe LinkedList do
       linked_list.delete_at(1)
       expect(linked_list.size).to eq(2)
       expect(linked_list.contains?('Delete Me!')).to be(false)
+    end
+
+    it 'sets the next node in sequence as head if index is equal to 0' do
+      expect(linked_list.head.value).to eq('a node')
+      linked_list.delete_at(0)
+      expect(linked_list.head.value).to eq('another node')
+    end
+
+    it 'sets tail to the previous node from the tail of the sequence' do
+      linked_list.append('last node')
+      expect(linked_list.tail.value).to eq('last node')
+      linked_list.delete_at(2)
+      expect(linked_list.tail.value).to eq('another node')
     end
   end
 end

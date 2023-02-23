@@ -111,9 +111,7 @@ describe LinkedList do
       expect(linked_list.tail.value).to eq('another node')
     end
   end
-
-    # TODO: Add tests for ensuring that when deleting front
-  # or back the node updates @tail and @head
+  
   describe '#delete_at' do
     it 'deletes a node at the specified index' do
       linked_list.insert_at('Delete Me!', 1)

@@ -109,19 +109,29 @@ class LinkedList
     end
   end
 
-  # def delete_at(index)
-  # end
-end
+  def delete_at(index)
+    return nil if index < 0 || index > (size - 1)
+    return pop if index == (size - 1)
+    
+    if index == 0
+      deleted_node = @head
+      @head = deleted_node.next_node
+      return deleted_node
+    end
 
-list = LinkedList.new
-list.append(1)
-list.append(2)
-list.append(3)
-# list.append(4)
-list.to_s
-puts ''
-list.insert_at('random', 2)
-list.to_s
-puts ''
-p list.tail.value
-p list.head.value
+    node = @head
+    subsequent_node = node.next_node
+    i = 0
+
+    until node.nil?
+      if index == (i + 1)
+        deleted_node = node.next_node
+        node.next_node = deleted_node.next_node
+        return deleted_node
+      end
+      i += 1
+      node = node.next_node
+    end
+
+  end
+end

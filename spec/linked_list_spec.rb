@@ -98,6 +98,8 @@ describe LinkedList do
     end
   end
 
+  # TODO: Add tests for ensuring that when adding front
+  # or back the node updates @tail and @head
   describe '#insert_at' do
     it 'inserts a node at the specified index' do
       linked_list.append('a node')
@@ -107,6 +109,23 @@ describe LinkedList do
       linked_list.insert_at('inserted node', 1)
       expect(linked_list.size).to eq(3)
       expect(linked_list.at(1).value).to eq('inserted node')
+    end
+  end
+
+    # TODO: Add tests for ensuring that when deleting front
+  # or back the node updates @tail and @head
+  describe '#delete_at' do
+    it 'deletes a node at the specified index' do
+      linked_list.append('Do not delete')
+      linked_list.append('No touchie')
+      linked_list.append('Delete Me!')
+
+      expect(linked_list.size).to eq(3)
+      expect(linked_list.contains?('Delete Me!')).to be(true)
+
+      linked_list.delete_at(2)
+      expect(linked_list.size).to eq(2)
+      expect(linked_list.contains?('Delete Me!')).to be(false)
     end
   end
 end
